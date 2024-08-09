@@ -126,7 +126,7 @@ function randomWaktu(min, max) {
     case "medium":
       return Math.round(Math.random() * (max - min) + min - 200);
     case "hard":
-      return Math.round(Math.random() * (max - min) + min - 400);
+      return Math.round(Math.random() * (max - min) + min - 350);
     default:
       return Math.round(Math.random() * (max - min) + min);
   }
@@ -134,7 +134,7 @@ function randomWaktu(min, max) {
 
 function munculJamur() {
   const pRandom = randompipa(pipa);
-  const wRandom = randomWaktu(400, 1000);
+  const wRandom = randomWaktu(800, 1000);
   pRandom.classList.add("muncul");
 
   setTimeout(() => {
@@ -163,7 +163,7 @@ function kalah() {
 }
 function mulai() {
   if (tingkat.value == "awal") {
-    alert("Pilih Tingkat Terlebih Dahulu!");
+    alert("Pilih Tingkat Kesulitan Dulu Cuy!");
     return;
   }
   tingkat.disabled = true;
