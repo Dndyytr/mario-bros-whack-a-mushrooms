@@ -1,0 +1,777 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.teks {
+  margin-left: 5rem;
+  margin-right: 5rem;
+  text-align: center;
+}
+h1 {
+  width: 16rem;
+  color: white;
+  font-size: 1.7rem;
+  padding: 0.5rem;
+  text-align: center;
+  margin-top: 1rem;
+  text-shadow: 0 0 3px black;
+  background: linear-gradient(rgb(244, 128, 128), red);
+  border-radius: 1rem;
+  box-shadow: inset 0 0 1rem 2px rgba(0, 0, 0, 0.419);
+  box-shadow: 3px 3px 7px 1px black;
+}
+
+#logocoin {
+  width: 1.7rem;
+  margin-left: 2rem;
+}
+
+#mulai {
+  margin-top: 0.5rem;
+  padding: 0.1rem 1rem;
+  color: white;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  text-shadow: 0 0 3px black;
+  background-color: rgb(0, 157, 255);
+  box-shadow: 3px 3px 7px 1px black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#mulai:hover {
+  transform: scale(0.95);
+  background: linear-gradient(rgb(206, 243, 247), rgb(0, 157, 255));
+}
+
+.container {
+  filter: drop-shadow(3px 2px 5px black);
+  position: relative;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 33rem;
+  background-image: url(img/land.jpg);
+  background-size: cover;
+  border-radius: 1rem;
+  box-shadow: inset 0 0 1rem 1px black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 1.5rem;
+}
+
+.container.aktip {
+  cursor: url(img/palu1.png), auto;
+}
+
+.container.aktip:active {
+  cursor: url(img/palu2.png), auto;
+}
+
+.pipa {
+  width: 4.5rem;
+  height: 5rem;
+  margin: 4rem 3rem 0 3rem;
+  position: relative;
+}
+
+.pipa::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url(img/pipa.png);
+  background-size: cover;
+  background-position: center;
+  filter: drop-shadow(0 8px 6px black);
+  z-index: 999;
+}
+
+.jamur {
+  filter: drop-shadow(0 8px 8px black);
+  left: -2.7rem;
+  width: 10rem;
+  height: 100%;
+  background: url(img/jamur.png) bottom center no-repeat;
+  background-size: 60%;
+  position: absolute;
+  bottom: -1rem;
+  transform: scale(0.4);
+  transition: 0.3s;
+}
+
+.pipa.muncul .jamur {
+  bottom: 85%;
+  transform: scale(1);
+  z-index: 9999;
+}
+
+#coin {
+  width: 2.5rem;
+  right: 0.9rem;
+  position: absolute;
+  top: -60px;
+  animation: atas 0.4s ease;
+  z-index: 9999;
+}
+
+.gameover.aktip {
+  visibility: visible;
+  animation: pop 1s ease forwards;
+}
+
+.gameover {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999999;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  visibility: hidden;
+}
+
+.overlay {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.overlay img {
+  max-width: 42rem;
+  width: 100%;
+}
+
+.x {
+  background-color: red;
+  color: white;
+  padding: 0.1rem 0.4rem;
+  border-radius: 1rem;
+  border: 2px solid white;
+  font-weight: bold;
+  box-shadow: 1px 1px 0 1px aqua;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.x:hover {
+  transform: scale(0.9);
+  color: black;
+  background-color: blue;
+  box-shadow: 1px 1px 0 1px red;
+}
+
+#opsi-tingkat {
+  box-shadow: 3px 3px 7px 1px black;
+  background-color: rgb(0, 13, 255);
+  color: white;
+  padding: 0.2rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  text-shadow: 0 0 3px black;
+  transition: 0.3s;
+  option {
+    background-color: rgb(255, 0, 0);
+    box-shadow: 3px 3px 7px 1px black;
+    font-size: 0.9rem;
+  }
+}
+
+#opsi-tingkat:hover {
+  background: linear-gradient(rgb(175, 188, 255), rgb(15, 27, 255));
+}
+
+#acipmen {
+  background-color: rgb(255, 111, 0);
+  color: white;
+  padding: 0.2rem 0.3rem;
+  border-radius: 0.6rem;
+  box-shadow: 3px 3px 7px 1px black;
+  text-shadow: 0 0 3px black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#acipmen:hover {
+  background: linear-gradient(rgb(255, 219, 175), rgb(255, 167, 15));
+  transform: scale(0.95);
+}
+
+#pencapaian.aktip {
+  animation: pop 1s ease forwards;
+  visibility: visible;
+}
+
+#pencapaian {
+  font-size: 1.4rem;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  z-index: 99999999999;
+}
+
+#achievements {
+  position: relative;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  padding: 1rem 2rem;
+  box-shadow: 3px 5px 0 3px aqua;
+  background-color: rgb(255, 0, 0);
+  border: 4px solid white;
+  border-radius: 1rem;
+  color: white;
+  h2 {
+    border-bottom: 2px solid white;
+    text-align: center;
+  }
+
+  ul li {
+    list-style: decimal;
+    line-height: 3rem;
+    .status {
+      background-color: rgb(255, 94, 0);
+      padding: 0.3rem;
+      border-radius: 0.4rem;
+      box-shadow: 0 1px 5px 0.7px black;
+      .fa-solid {
+        color: rgb(0, 89, 255);
+      }
+    }
+    .btg {
+      color: yellow;
+      font-weight: bold;
+      font-size: 1.7rem;
+      text-shadow: 0 0 5px white, 0 0 7px white;
+    }
+  }
+}
+
+#achievements .btn {
+  position: absolute;
+  right: 0.3rem;
+  top: 0.3rem;
+  background-color: rgb(0, 81, 255);
+  box-shadow: 0 1px 5px 1px black;
+  padding: 0 0.2rem;
+  border-radius: 2rem;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#achievements .btn:hover {
+  transform: scale(0.95);
+  background-color: aqua;
+  color: black;
+}
+
+.hadiah.aktip {
+  visibility: visible;
+}
+
+.hadiah {
+  visibility: hidden;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.wadah-hadiah.aktip {
+  animation: hadiah 1.5s ease-out;
+  visibility: visible;
+}
+
+.wadah-hadiah {
+  width: 30%;
+  position: relative;
+  padding-top: 2rem;
+  visibility: hidden;
+}
+
+.wadah-hadiah .judul {
+  transform: translateX(-1rem);
+  width: 115%;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  background-color: red;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  border: 2px solid white;
+  box-shadow: 2px 2px 0 2px aqua;
+  padding: 1rem;
+  .fa-star {
+    color: yellow;
+    text-shadow: 0 0 5px white, 0 0 7px white;
+  }
+}
+
+.wadah-hadiah .close {
+  top: 3rem;
+  right: -17%;
+  position: absolute;
+  color: white;
+  background-color: red;
+  padding: 0 0.3rem;
+  border-radius: 2rem;
+  border: 2px solid white;
+  box-shadow: 1px 1px aqua;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.wadah-hadiah .close:hover {
+  background-color: blue;
+  box-shadow: 1px 1px red;
+  transform: scale(0.95);
+}
+
+.wadah-hadiah img {
+  width: 100%;
+  filter: drop-shadow(0 0 7px rgb(255, 252, 86));
+}
+
+footer {
+  text-shadow: 1px 1px 3px black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(rgb(79, 132, 255), rgb(0, 68, 255));
+  color: white;
+  text-align: center;
+  padding: 0.5rem;
+  box-shadow: 0 -3px 9px black;
+  span {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+
+  .fa-brands {
+    padding: 0.5rem;
+    border-radius: 1rem;
+    position: relative;
+    z-index: 1;
+    border: 2px solid white;
+    overflow: hidden;
+    transition: 0.4s;
+  }
+
+  .fa-brands::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    left: 0;
+    top: 100%;
+    border-radius: 1rem;
+    transition: 0.4s;
+    z-index: -1;
+  }
+
+  .fa-brands:hover {
+    color: black;
+  }
+
+  .fa-brands:hover::after {
+    top: 0;
+  }
+
+  hr {
+    border: 1px solid white;
+  }
+}
+
+/* media queris */
+@media (max-width: 1020px) {
+  #opsi-tingkat option {
+    font-size: 0.8rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+  #mulai {
+    font-size: 1.1rem;
+  }
+  section {
+    justify-content: center;
+  }
+
+  .wadah-hadiah {
+    width: 36%;
+  }
+
+  .wadah-hadiah .judul {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 768px) {
+  #opsi-tingkat option {
+    font-size: 0.7rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    width: 15rem;
+  }
+
+  #logocoin {
+    width: 1.6rem;
+  }
+  #mulai {
+    font-size: 1rem;
+  }
+
+  .container {
+    max-width: 29rem;
+  }
+
+  .pipa {
+    width: 3.5rem;
+    height: 4rem;
+  }
+
+  .jamur {
+    width: 9rem;
+  }
+
+  #coin {
+    width: 1.7rem;
+    right: 0.8rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    span {
+      font-size: 1.2rem;
+    }
+  }
+
+  .wadah-hadiah {
+    width: 40%;
+  }
+
+  .wadah-hadiah .judul {
+    font-size: 0.81rem;
+  }
+
+  .wadah-hadiah .close {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .wadah-hadiah {
+    width: 50%;
+  }
+
+  .wadah-hadiah .judul {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 470px) {
+  h1 {
+    font-size: 1.2rem;
+    width: 13rem;
+  }
+
+  #logocoin {
+    width: 1.5rem;
+  }
+
+  #mulai {
+    font-size: 0.9rem;
+    position: absolute;
+    left: -0.1rem;
+  }
+
+  #opsi-tingkat {
+    font-size: 0.7rem;
+    position: absolute;
+    left: 4.5rem;
+    bottom: -0.3rem;
+  }
+
+  #acipmen {
+    font-size: 0.7rem;
+    position: absolute;
+    left: 9rem;
+    bottom: -0.3rem;
+  }
+
+  .teks {
+    margin: 0;
+    position: relative;
+  }
+
+  .container {
+    max-width: 24rem;
+  }
+
+  .pipa {
+    width: 3rem;
+    height: 3.5rem;
+    margin: 3rem 1.7rem 0 1.7rem;
+  }
+
+  .jamur {
+    width: 7rem;
+    left: -2rem;
+  }
+
+  #coin {
+    width: 1.6rem;
+    right: 0.6rem;
+    top: -50px;
+  }
+  footer {
+    font-size: 0.8rem;
+    span {
+      font-size: 1rem;
+    }
+  }
+
+  .x {
+    font-size: 0.7rem;
+  }
+
+  #pencapaian {
+    font-size: 1rem;
+  }
+
+  #achievements ul li .btg {
+    font-size: 1.5rem;
+  }
+
+  .wadah-hadiah {
+    width: 65%;
+  }
+
+  .wadah-hadiah .close {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 360px) {
+  h1 {
+    font-size: 1rem;
+    width: 11rem;
+  }
+
+  #logocoin {
+    width: 1.4rem;
+  }
+
+  #mulai {
+    font-size: 0.8rem;
+    position: absolute;
+    left: -1rem;
+  }
+
+  #opsi-tingkat {
+    font-size: 0.6rem;
+    position: absolute;
+    left: 3.5rem;
+    bottom: -0.13rem;
+  }
+
+  #acipmen {
+    font-size: 0.6em;
+    position: absolute;
+    left: 7.8rem;
+    bottom: -0.13rem;
+  }
+
+  .container {
+    max-width: 20rem;
+  }
+
+  .pipa {
+    width: 3rem;
+    height: 3.5rem;
+    margin: 3rem 1.7rem 0 1.7rem;
+  }
+
+  .jamur {
+    width: 7rem;
+    left: -2rem;
+  }
+
+  #coin {
+    width: 1.6rem;
+    right: 0.6rem;
+  }
+
+  footer {
+    font-size: 0.7rem;
+    span {
+      font-size: 0.8rem;
+    }
+  }
+
+  .x {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.3rem;
+  }
+
+  #pencapaian {
+    font-size: 0.9rem;
+  }
+
+  #achievements ul li .btg {
+    font-size: 1.3rem;
+  }
+
+  .wadah-hadiah .judul {
+    font-size: 0.66rem;
+  }
+}
+@media (max-width: 320px) {
+  h1 {
+    font-size: 0.6rem;
+    width: 8rem;
+  }
+
+  #logocoin {
+    width: 1rem;
+  }
+
+  #mulai {
+    font-size: 0.7rem;
+    position: absolute;
+    left: -2rem;
+  }
+
+  #opsi-tingkat {
+    font-size: 0.58rem;
+    position: absolute;
+    left: 2.2rem;
+    bottom: -0.13rem;
+  }
+
+  #acipmen {
+    font-size: 0.6em;
+    position: absolute;
+    left: 6.5rem;
+    bottom: -0.13rem;
+  }
+
+  .container {
+    max-width: 18rem;
+  }
+
+  .pipa {
+    width: 2.5rem;
+    height: 3rem;
+    margin: 2.6rem 1.5rem 0 1.5rem;
+  }
+
+  .jamur {
+    width: 6rem;
+    left: -1.7rem;
+  }
+
+  #coin {
+    width: 1.4rem;
+    right: 0.4rem;
+    top: -40px;
+  }
+
+  footer {
+    font-size: 0.6rem;
+    span {
+      font-size: 0.6rem;
+    }
+  }
+
+  .x {
+    font-size: 0.5rem;
+    padding: 0.1rem 0.3rem;
+  }
+
+  #pencapaian {
+    font-size: 0.8rem;
+  }
+
+  #achievements ul li .btg {
+    font-size: 1rem;
+  }
+
+  .wadah-hadiah .judul {
+    font-size: 0.63rem;
+  }
+  .wadah-hadiah .close {
+    font-size: 0.7rem;
+  }
+}
+
+/* animasi */
+@keyframes atas {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-60px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes hadiah {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
