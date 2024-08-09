@@ -384,12 +384,14 @@ footer {
   }
 
   .fa-brands {
+    color: white;
     padding: 0.5rem;
     border-radius: 1rem;
     position: relative;
     z-index: 1;
     border: 2px solid white;
     overflow: hidden;
+    cursor: pointer;
     transition: 0.4s;
   }
 
