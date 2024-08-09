@@ -299,6 +299,7 @@ h1 {
 }
 
 .hadiah {
+  z-index: 9999;
   visibility: hidden;
   width: 100%;
   position: absolute;
